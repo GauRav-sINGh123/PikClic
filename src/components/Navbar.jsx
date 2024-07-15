@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { signOut } from 'firebase/auth';
 import { toast } from 'sonner';
-import {useAuth } from '../context/AuthContext';
 import { auth } from '../config/firebase';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { user } =useAuth();
-
-  const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
-  };
-
+ 
+  const {user}=useAuth();
+  const navigate=useNavigate();
+ 
   const handleLogout = async() => {
     try {
        await signOut(auth);
@@ -20,7 +18,9 @@ const Navbar = () => {
       console.log(error);
     }
   };
-
+  const handleLogin = () => {
+    navigate('/login');
+  };
   return (
     <nav className="bg-inherit">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -31,45 +31,24 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:ml-6 sm:block"></div>
           </div>
-          <div className="relative ml-3">
-            <div>
+           <div className="relative ml-3">
+           {user ? (
               <button
-                type="button"
-                className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                id="user-menu-button"
-                aria-expanded={menuOpen}
-                aria-haspopup="true"
-                onClick={handleMenuToggle}
+                onClick={handleLogout}
+                className="flex rounded-md outline-none bg-blue-600 px-4 py-2 hover:scale-105  text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800 transition-all ease-in-out"
               >
-                <span className="absolute -inset-1.5" />
-                <span className="sr-only">Open user menu</span>
-                <img
-                  className="h-8 w-8 rounded-full"
-                  src={user?.photoURL || 'https://i.pravatar.cc/300'}
-                  alt=""
-                />
+                Logout
               </button>
-            </div>
-            {menuOpen && (
-              <div
-                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                role="menu"
-                aria-orientation="vertical"
-                aria-labelledby="user-menu-button"
-                tabIndex={-1}
+            ) : (
+              <button
+                onClick={handleLogin}
+                className="flex rounded-md outline-none bg-blue-600 px-4 py-2 hover:scale-105  text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800 transition-all ease-in-out"
+               
               >
-                <button
-                  onClick={handleLogout}
-                  className="block px-4 py-2 text-sm text-gray-700"
-                  role="menuitem"
-                  tabIndex={-1}
-                  id="user-menu-item-2"
-                >
-                  Sign out
-                </button>
-              </div>
+                Login
+              </button>
             )}
-          </div>
+           </div>
         </div>
       </div>
     </nav>

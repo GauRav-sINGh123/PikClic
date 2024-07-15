@@ -43,7 +43,7 @@ function useStorage() {
                 imageUrl: downloadURL,
                 createdAt:new Date(),
                 userEmail:user?.email,
-                user:user?.displayName
+               
               })
             });
     };

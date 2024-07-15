@@ -1,9 +1,14 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import useStorage from "../hooks/useStorage";
+import { useAuth } from "../context/AuthContext";
+
 
 function UploadForm() {
   const [selectedFile,setSelectedFile]=useState(null);
   const {startUpload}=useStorage();
+  const {user}=useAuth();
+  
   const handleFileChange=(e)=>{
     if(e.target.files && e.target.files[0]){
       setSelectedFile(e.target.files[0]);
@@ -18,6 +23,7 @@ function UploadForm() {
     }
     setSelectedFile(null);
   }
+  
   return (
     <div className='text-center mt-10 '>
       <form 
@@ -26,7 +32,11 @@ function UploadForm() {
       <input 
       onChange={handleFileChange}
       type="file" className="file-input file-input-bordered file-input-primary hover:transition-all hover:scale-105 ease-in-out w-full max-w-xs" />
-      <button type="submit"className="btn btn-primary mt-7 hover:transition-all hover:scale-105 ease-in-out">Upload <span>🔥</span></button>
+      <button 
+      
+      disabled={!user} 
+      type="submit"
+      className="btn btn-primary mt-7 hover:transition-all hover:scale-105 ease-in-out">Upload <span>🔥</span></button>
       </form>
     </div>
   )
