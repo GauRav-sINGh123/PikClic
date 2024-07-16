@@ -15,10 +15,10 @@ function UploadForm() {
     }
   }
 
-  const handleSubmit=(e)=>{
+  const handleSubmit=async(e)=>{
     e.preventDefault()
     if(selectedFile){
-      startUpload(selectedFile);
+     await startUpload(selectedFile);
      
     }
     setSelectedFile(null);
