@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+  .body{
+    background-color: black;
+  }
+  .customModal {
+    
+    max-width: 500px;
+    width: 100%;
+  }

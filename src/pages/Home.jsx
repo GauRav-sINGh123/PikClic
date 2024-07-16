@@ -4,7 +4,7 @@ import UploadForm from "../components/UploadForm";
 
 function Home() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-full   ">
       <Navbar />
       <UploadForm />
       <ImageGallery />

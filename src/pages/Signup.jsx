@@ -24,7 +24,7 @@ function Login() {
     }
   };
   return (
-    <div className="h-screen bg-neutral-900 flex-1 flex flex-col space-y-10 justify-center items-center">
+    <div className="h-screen bg-black flex-1 flex flex-col space-y-10 justify-center items-center">
       <div className="bg-white w-96 shadow-xl rounded p-5">
         <h1 className="text-3xl text-neutral-800 font-medium text-center">
           Welcome
@@ -48,13 +48,15 @@ function Login() {
             placeholder="Password"
           />
           <div className="">
-            <p className="font-medium text-sm text-blue-600 hover:text-blue-800 hover:scale-105  hover:-translate-y-0.5 transition ease-in-out rounded-md p-2">
+          <Link to="/login">
+            <p className="font-medium cursor-pointer text-sm text-blue-600 hover:text-blue-800 hover:scale-105  hover:-translate-y-0.5 transition ease-in-out rounded-md p-2">
               Have an account?
               <span>
                 {" "}
-                <Link to="/login">Login</Link>
+                Login
               </span>
             </p>
+            </Link>
           </div>
           <button className="text-center w-full bg-blue-800 rounded-md text-white py-3 font-medium hover:scale-100 hover:-translate-y-0.5 transition ease-in-out">
             SignUp

@@ -27,7 +27,7 @@ function UploadForm() {
   };
 
   return (
-    <div className="text-center mt-10 ">
+    <div className="text-center mt-10   ">
       <form onSubmit={handleSubmit} className=" flex items-center flex-col">
         <input
           onChange={handleFileChange}
