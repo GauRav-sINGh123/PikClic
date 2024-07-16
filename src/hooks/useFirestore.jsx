@@ -1,4 +1,11 @@
-import { collection, onSnapshot, orderBy, query, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db, storage } from "../config/firebase";
 import { useAuth } from "../context/AuthContext";
@@ -16,7 +23,12 @@ const useFirestore = (subCollectionName) => {
       if (!user) return;
 
       try {
-        const userCollectionRef = collection(db, "users", user.uid, subCollectionName);
+        const userCollectionRef = collection(
+          db,
+          "users",
+          user.uid,
+          subCollectionName
+        );
         const q = query(userCollectionRef, orderBy("createdAt", "desc"));
         unsubscribe = onSnapshot(q, (querySnapshot) => {
           const images = [];
@@ -50,7 +62,7 @@ const useFirestore = (subCollectionName) => {
       // Delete the document from Firestore
       const docRef = doc(db, "users", user.uid, subCollectionName, docId);
       await deleteDoc(docRef);
-      
+
       setDocs((prevDocs) => prevDocs.filter((doc) => doc.id !== docId));
     } catch (error) {
       console.error("Error deleting document and image: ", error);

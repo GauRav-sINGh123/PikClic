@@ -28,7 +28,9 @@ const ImageGallery = () => {
   };
 
   if (!user) {
-    return <div className="text-center mt-10">Please log in to see your images.</div>;
+    return (
+      <div className="text-center mt-10">Please log in to see your images.</div>
+    );
   }
 
   if (isLoading) {

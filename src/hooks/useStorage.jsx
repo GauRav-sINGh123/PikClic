@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
+import React, { useState } from "react";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from '../config/firebase';
-import { v4 as uuidv4 } from 'uuid';
-import { db } from '../config/firebase';
-import { useAuth } from '../context/AuthContext';
+import { storage } from "../config/firebase";
+import { v4 as uuidv4 } from "uuid";
+import { db } from "../config/firebase";
+import { useAuth } from "../context/AuthContext";
 
 function useStorage() {
   const [progress, setProgress] = useState(0);
@@ -42,7 +42,7 @@ function useStorage() {
           const userRef = doc(db, "users", user.uid);
 
           // Add the image URL to the "images" subcollection
-          
+
           const imagesCollectionRef = collection(userRef, "images");
           await addDoc(imagesCollectionRef, {
             imageUrl: downloadURL,
@@ -57,7 +57,7 @@ function useStorage() {
   return {
     progress,
     url,
-    startUpload
+    startUpload,
   };
 }
 
