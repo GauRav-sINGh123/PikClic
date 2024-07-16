@@ -39,7 +39,7 @@ function UploadForm() {
           type="submit"
           className={`btn btn-primary mt-7 ${
             progress > 0
-              ? "loading loading-dots loading-md"
+              ? "loading loading-dots text-white loading-md"
               : "hover:transition-all hover:scale-105 ease-in-out"
           }`}
         >
