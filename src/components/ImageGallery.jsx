@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import { getDownloadURL, ref } from "firebase/storage";
+import { storage } from "../config/firebase";
 
 const ImageGallery = () => {
   const { user } = useAuth();
@@ -27,7 +29,17 @@ const ImageGallery = () => {
     }
   };
 
-  
+  const handleDownload = async () => {
+    if (selectedImage) {
+      try {
+        const storageRef = ref(storage, selectedImage.imageUrl);
+        const downloadURL = await getDownloadURL(storageRef);
+        window.open(downloadURL, "_blank");
+      } catch (error) {
+        console.error("Error downloading the image:", error);
+      }
+    }
+  };
 
   if (isLoading) {
     return (
@@ -50,7 +62,7 @@ const ImageGallery = () => {
               <img
                 src={image.imageUrl}
                 alt="image"
-                className="w-full h-full object-cover rounded-lg hover:scale-105 transition-all ease-in-out"
+                className="w-full h-full object-cover rounded-lg "
               />
             </figure>
             <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2">
@@ -61,10 +73,7 @@ const ImageGallery = () => {
           </div>
         ))}
       </div>
-      <Modal open={open} onClose={onCloseModal} center  classNames={{
-          
-          modal: 'customModal',
-        }}>
+      <Modal open={open} onClose={onCloseModal} center classNames={{ modal: 'customModal' }}>
         {selectedImage && (
           <div className="flex flex-col items-center justify-center p-4 md:p-0 ">
             <img
@@ -72,12 +81,20 @@ const ImageGallery = () => {
               alt="Selected"
               className="w-full h-auto md:w-[70%] md:h-[50%] object-cover rounded-md "
             />
-            <button
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded-md"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
+            <div className="mt-4 space-x-4">
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded-md"
+                onClick={handleDownload}
+              >
+                Download
+              </button>
+              <button
+                className="px-4 py-2 bg-red-500 text-white rounded-md"
+                onClick={handleDelete}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         )}
       </Modal>

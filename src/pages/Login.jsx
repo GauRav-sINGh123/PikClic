@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../config/firebase";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -21,8 +21,21 @@ function Login() {
       console.log(error);
     }
   };
+
+  const handleGoogleSignUp = async (e) => {
+    try {
+      await signInWithPopup(auth, provider);
+      navigate("/home");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   return (
-    <div className="h-screen bg-black flex flex-col space-y-10 justify-center items-center">
+    <div className="h-screen bg-black flex flex-col space-y-10 justify-center items-center relative">
+      <Link to="/" className="absolute top-5 right-5 text-white text-sm font-semibold hover:underline hover:text-blue-400 hover:scale-105 transition-all ease-in-out">
+        Back To Main
+      </Link>
       <div className="bg-white w-96 shadow-xl rounded-md p-5">
         <h1 className="text-3xl text-neutral-800 font-medium text-center">
           Welcome
@@ -42,12 +55,12 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            className="w-full h-12 border text-black placeholder:text-gray-600 border-gray-800  bg-slate-200 rounded px-3"
+            className="w-full h-12 border text-black placeholder:text-gray-600 border-gray-800 bg-slate-200 rounded px-3"
             placeholder="Password"
           />
           <div className="">
             <Link to="/signup">
-              <p className="font-medium cursor-pointer text-sm text-blue-600 hover:text-blue-800 hover:scale-105  hover:-translate-y-0.5 transition ease-in-out rounded-md p-2">
+              <p className="font-medium cursor-pointer text-sm text-blue-600 hover:text-blue-800 hover:scale-105 hover:-translate-y-0.5 transition ease-in-out rounded-md p-2">
                 Don't have an account?
                 <span> Signup</span>
               </p>
@@ -57,6 +70,28 @@ function Login() {
             Login
           </button>
         </form>
+        <div className="relative my-5">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-300"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="bg-white px-2 text-gray-500">OR</span>
+          </div>
+        </div>
+        <button
+          onClick={handleGoogleSignUp}
+          className="px-4 py-2 w-full bg-blue-900 hover:bg-blue-950 hover:scale-105 transition-all ease-in-out border flex gap-2 border-slate-700 rounded-lg hover:border-slate-500 hover:text-slate-900 hover:shadow"
+        >
+          <img
+            className="w-6 h-6"
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            loading="lazy"
+            alt="google logo"
+          />
+          <span className="font-medium ml-14 text-white">
+            SignIn with Google
+          </span>
+        </button>
       </div>
     </div>
   );

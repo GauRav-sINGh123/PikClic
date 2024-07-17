@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
 function Landing() {
@@ -60,7 +62,7 @@ function Landing() {
         <div className="lg:w-1/2">
           <div className="text-gray-800">
             <h1 className="text-5xl font-bold text-white mt-20 leading-[3.5rem]">
-              "Securely Store and Share Your Memories"
+            "Store, Manage, and Share Your Photos Safely in the Cloud"
             </h1>
             <p className="text-lg  text-gray-300 mt-4">
               "Cloud Storage for Easy Access and Safe Keeping of Your Photos"
@@ -110,6 +112,21 @@ function Landing() {
           />
         </div>
       </main>
+      <footer className="footer text-neutral-content items-center mt-9 p-4">
+  <aside className="grid-flow-col items-center">
+
+  </aside>
+  <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-center">
+    <a href="https://x.com/GauravS28082202" target="_blank">
+    <FaXTwitter/>
+      
+    </a>
+    <a href="www.linkedin.com/in/gaurav-singh-746916238" target="_blank">
+     <FaLinkedin />
+    </a>
+     
+  </nav>
+</footer>
     </div>
   );
 }

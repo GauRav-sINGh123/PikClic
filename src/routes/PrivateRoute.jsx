@@ -9,10 +9,10 @@ function PrivateRoute({ children }) {
   if (!user) {
     navigate("/login");
   }
-
-   
-  
-  return children;
+  if (user) {
+    return children;
+  }
+   return null;
 }
 
 export default PrivateRoute;
