@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AiOutlineClose } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 
@@ -27,20 +29,9 @@ function Landing() {
           className="md:hidden text-gray-600"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
-            />
-          </svg>
+           {
+             isMenuOpen ? <AiOutlineClose className="text-white text-xl"/> : <RxHamburgerMenu className="text-white text-xl" />
+           }
         </button>
       </header>
 
@@ -62,7 +53,11 @@ function Landing() {
         <div className="lg:w-1/2">
           <div className="text-gray-800">
             <h1 className="text-5xl font-bold text-white mt-20 leading-[3.5rem]">
-            "Store, Manage, and Share Your Photos Safely in the Cloud"
+            "Store, Manage, and Share Your Photos Safely 
+            <span className='bg-gradient-to-r  from-pink-600 to-violet-900 text-transparent bg-clip-text  ' > 
+       {" "}   in the Cloud"
+      </span>
+           
             </h1>
             <p className="text-lg  text-gray-300 mt-4">
               "Cloud Storage for Easy Access and Safe Keeping of Your Photos"

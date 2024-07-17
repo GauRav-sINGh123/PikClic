@@ -2,6 +2,9 @@ import useFirestore from "../hooks/useFirestore";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import "react-responsive-modal/styles.css";
+import { FaArrowAltCircleDown } from "react-icons/fa";
+import { FaShareAltSquare } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import { Modal } from "react-responsive-modal";
 import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../config/firebase";
@@ -41,6 +44,29 @@ const ImageGallery = () => {
     }
   };
 
+  const handleShare = async () => {
+    if (selectedImage) {
+      try {
+        const storageRef = ref(storage, selectedImage.imageUrl);
+        const downloadURL = await getDownloadURL(storageRef);
+
+        if (navigator.share) {
+          await navigator.share({
+            title: "Check out this image",
+            url: downloadURL,
+          });
+        } else {
+          alert(
+            "Sharing not supported on this browser. Copy this link to share: " +
+              downloadURL
+          );
+        }
+      } catch (error) {
+        console.error("Error sharing the image:", error);
+      }
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="text-center mt-10 h-screen">
@@ -58,7 +84,7 @@ const ImageGallery = () => {
             className="relative cursor-pointer"
             onClick={() => onOpenModal(image)}
           >
-            <figure className="w-full h-60 md:h-80 ">
+            <figure className="w-full h-60 md:h-full ">
               <img
                 src={image.imageUrl}
                 alt="image"
@@ -73,7 +99,12 @@ const ImageGallery = () => {
           </div>
         ))}
       </div>
-      <Modal open={open} onClose={onCloseModal} center classNames={{ modal: 'customModal' }}>
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        center
+        classNames={{ modal: "customModal" }}
+      >
         {selectedImage && (
           <div className="flex flex-col items-center justify-center p-4 md:p-0 ">
             <img
@@ -81,19 +112,15 @@ const ImageGallery = () => {
               alt="Selected"
               className="w-full h-auto md:w-[70%] md:h-[50%] object-cover rounded-md "
             />
-            <div className="mt-4 space-x-4">
-              <button
-                className="px-4 py-2 bg-blue-500 text-white rounded-md"
+            <div className="flex items-center justify-center mt-4 gap-4 space-x-4">
+              <FaArrowAltCircleDown
+                className="text-2xl cursor-pointer text-black"
                 onClick={handleDownload}
-              >
-                Download
-              </button>
-              <button
-                className="px-4 py-2 bg-red-500 text-white rounded-md"
-                onClick={handleDelete}
-              >
-                Delete
-              </button>
+              />
+
+              <MdDelete className="text-2xl cursor-pointer  text-black" onClick={handleDelete} />
+
+              <FaShareAltSquare className="text-2xl cursor-pointer text-black" onClick={handleShare} />
             </div>
           </div>
         )}
