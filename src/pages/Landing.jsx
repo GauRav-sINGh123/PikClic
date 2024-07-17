@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaXTwitter } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { useAuth } from "../context/AuthContext";
 
 function Landing() {
@@ -108,19 +108,8 @@ function Landing() {
         </div>
       </main>
       <footer className="footer text-neutral-content items-center mt-9 p-4">
-  <aside className="grid-flow-col items-center">
-
-  </aside>
-  <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-center">
-    <a href="https://x.com/GauravS28082202" target="_blank">
-    <FaXTwitter/>
-      
-    </a>
-    <a href="www.linkedin.com/in/gaurav-singh-746916238" target="_blank">
-     <FaLinkedin />
-    </a>
-     
-  </nav>
+   
+ 
 </footer>
     </div>
   );

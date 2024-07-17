@@ -28,24 +28,47 @@ function UploadForm() {
 
   return (
     <div className="text-center mt-10   ">
-      <form onSubmit={handleSubmit} className=" flex items-center flex-col">
-        <input
-          onChange={handleFileChange}
-          type="file"
-          className="file-input file-input-bordered file-input-primary hover:transition-all hover:scale-105 ease-in-out w-full max-w-xs"
-        />
-        <button
+     <div className="flex justify-center items-center">
+     <form onSubmit={handleSubmit}>
+    <label className="block">
+      <span className="sr-only">Choose profile photo</span>
+      <input 
+      onChange={handleFileChange}
+      type="file" 
+      className="block w-full text-sm text-gray-500
+      outline-none border border-spacing-0 border-slate-500
+      rounded-lg cursor-pointer
+        file:me-4 file:py-2 file:px-4
+        file:rounded-lg file:border-0
+        file:text-sm file:font-semibold
+        file:bg-blue-600 file:text-white
+        hover:file:bg-blue-700
+        file:disabled:opacity-50 file:disabled:pointer-events-none
+        dark:text-neutral-500
+        dark:file:bg-blue-500
+        
+        dark:hover:file:bg-blue-400
+      "/>
+    </label>
+   
+        {progress > 0 ? (
+          <div className="animate-spin inline-block size-6 mt-4 border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500" role="status" aria-label="loading">
+          <span className="sr-only">Loading...</span>
+        </div>
+        ) : (
+          <button
           disabled={!user}
           type="submit"
-          className={`btn btn-primary mt-7 ${
-            progress > 0
-              ? "loading loading-dots text-white loading-md"
-              : "hover:transition-all hover:scale-105 ease-in-out"
+          className={`bg-blue-600 px-3 py-2 text-white rounded-md mt-7 "hover:transition-all hover:scale-105 ease-in-out"
           }`}
         >
-          {progress > 0 ? "Loading..." : "Upload 🔥"}
+         Upload 🔥
         </button>
+          )
+          
+        }
       </form>
+     </div>
     </div>
   );
 }
