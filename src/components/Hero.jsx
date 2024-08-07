@@ -10,7 +10,7 @@ function Hero() {
       <main className="flex flex-col lg:flex-row items-center lg:items-start text-center lg:text-left py-[50px] px-8 lg:px-20">
         <div className="lg:w-1/2">
           <div className="  flex flex-col">
-            <h1 className="text-5xl font-bold font-DMSans text-black mt-8 md:mt-24 leading-[3.5rem]">
+            <h1 className="text-5xl  font-extrabold font-DMSans text-neutral-900 mt-8 md:mt-24 leading-[3.3rem] md:leading-[3.5rem]">
               "Store, Manage, and Share Your Photos Safely
               <span className="bg-gradient-to-r  from-pink-600 to-violet-900 text-transparent bg-clip-text  ">
                 {" "}

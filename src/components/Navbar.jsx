@@ -40,7 +40,7 @@ const Navbar = () => {
           {user ? (
             <div className="flex gap-4 sm:gap-10 justify-center items-center">
               <div>
-                <Link to={"/home"}>
+                <Link to={"/gallery"}>
                   {" "}
                   <FcGallery className="w-8 h-8 hover:scale-105 transition-all ease-in-out  " />
                 </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link to="/login">
-              <button className="hover:scale-105 transition-all bg-blue-700 py-2 rounded-md text-white ease-in-out px-6">
+              <button className="hover:scale-105 text-lg  font-medium transition-all bg-blue-700 py-[0.3rem] rounded-md text-white ease-in-out px-6">
                 Login
               </button>
             </Link>
@@ -109,9 +109,11 @@ const Navbar = () => {
                 Pricing
               </p>
             </Link>
+            <Link to={"/contact"}>
             <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
               Contact
             </p>
+            </Link>
             <Link to="/services">
               <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
                 Services

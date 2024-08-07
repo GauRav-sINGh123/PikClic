@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/home");
+      navigate("/gallery");
       toast.success("Login successful");
     } catch (error) {
       toast.error(error.message);
@@ -25,7 +25,7 @@ function Login() {
   const handleGoogleSignUp = async (e) => {
     try {
       await signInWithPopup(auth, provider);
-      navigate("/home");
+      navigate("/gallery");
     } catch (error) {
       toast.error(error.message);
     }

@@ -63,7 +63,7 @@ function Signup() {
         startUpload(avatar, true);  // Start uploading the avatar
       }
 
-      navigate("/login");
+      navigate("/gallery");
       toast.success("Account created successfully");
     } catch (error) {
       toast.error(error.message);
