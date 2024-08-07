@@ -7,7 +7,7 @@ function Footer() {
         <p className="text-center">2024 PikClick. All rights reserved</p>
       </div>
       <div  >
-        <div className="parent">
+        <div className="parent  ">
           <div className="child child-1">
             <button className="button btn-1">
               <svg
