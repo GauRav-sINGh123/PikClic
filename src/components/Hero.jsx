@@ -22,10 +22,7 @@ function Hero() {
             </p>
             <div className="flex justify-center lg:justify-normal">
               <Link to={"/signup"}>
-                <p
-                  
-                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-5 hover:scale-105   ease-in-out"
-                >
+                <p className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none mt-5 hover:scale-105   ease-in-out">
                   Get Started
                 </p>
               </Link>

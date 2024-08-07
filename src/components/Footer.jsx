@@ -2,11 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="w-full h-[100px]   flex p-5 justify-between">
+    <div className="w-full h-[100px]   flex p-5 flex-col sm:flex-row justify-between">
       <div className="mt-8">
-        <p>2024 PikClick. All rights reserved</p>
+        <p className="text-center">2024 PikClick. All rights reserved</p>
       </div>
-      <div className="">
+      <div  >
         <div className="parent">
           <div className="child child-1">
             <button className="button btn-1">

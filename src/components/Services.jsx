@@ -26,7 +26,7 @@ const Service = [
 
 function Services() {
   return (
-    <div className="bg-slate-100 h-[500px] flex flex-col justify-center items-center mt-2 md:mt-4">
+    <div className="bg-slate-100 h-[1200px] sm:h-[500px] flex flex-col justify-center items-center md:1 md:mt-4">
       <div class="relative mx-auto max-w-5xl text-center">
         <span className="text-gray-700 my-3 font-semibold flex items-center justify-center  uppercase tracking-wider">
           Why choose us

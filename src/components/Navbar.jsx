@@ -39,15 +39,18 @@ const Navbar = () => {
         <div className="flex items-center lg:order-2">
           {user ? (
             <div className="flex gap-4 sm:gap-10 justify-center items-center">
-            <div>
-            <Link to={"/home"}> <FcGallery className="w-8 h-8 hover:scale-105 transition-all ease-in-out  " /></Link>
-            </div>
-             <div >
-             
-             <AiOutlineLogout className="w-6 h-6 text-slate-800 cursor-pointer hover:scale-105 transition-all ease-in-out hover:text-blue-600 font-bold" onClick={handleLogout}/>
-             
-             </div>
-           
+              <div>
+                <Link to={"/home"}>
+                  {" "}
+                  <FcGallery className="w-8 h-8 hover:scale-105 transition-all ease-in-out  " />
+                </Link>
+              </div>
+              <div>
+                <AiOutlineLogout
+                  className="w-6 h-6 text-slate-800 cursor-pointer hover:scale-105 transition-all ease-in-out hover:text-blue-600 font-bold"
+                  onClick={handleLogout}
+                />
+              </div>
             </div>
           ) : (
             <Link to="/login">
@@ -97,23 +100,23 @@ const Navbar = () => {
         >
           <div className="flex flex-col ml-4 gap-2 md:gap-0 mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             <Link to={"/"}>
-            <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
-              Home
-            </p>
+              <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
+                Home
+              </p>
             </Link>
             <Link to={"/pricing"}>
-            <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
-              Pricing
-            </p>
+              <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
+                Pricing
+              </p>
             </Link>
             <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
               Contact
             </p>
-           <Link  to="/services">
-           <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
-              Services
-            </p>
-           </Link>
+            <Link to="/services">
+              <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
+                Services
+              </p>
+            </Link>
           </div>
         </div>
       </div>
