@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      DMSans: ["DM Sans", "sans-serif"],
+    }
   },
   plugins: [
    

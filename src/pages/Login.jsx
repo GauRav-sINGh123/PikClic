@@ -32,11 +32,9 @@ function Login() {
   };
 
   return (
-    <div className="h-screen bg-black flex flex-col space-y-10 justify-center items-center relative">
-      <Link to="/" className="absolute top-5 right-5 text-white text-sm font-semibold hover:underline hover:text-blue-400 hover:scale-105 transition-all ease-in-out">
-        Back To Main
-      </Link>
-      <div className="bg-white w-96 shadow-xl rounded-md p-5">
+    <div className="h-screen  flex flex-col space-y-4 justify-center items-center relative">
+      
+      <div className="bg-white w-96 shadow-xl border border-gray-400 rounded-md p-5">
         <h1 className="text-3xl text-neutral-800 font-medium text-center">
           Welcome
         </h1>

@@ -65,12 +65,9 @@ const ImageGallery = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center mt-16">
-  <div className="relative">
-    <div className="h-16 w-16 rounded-full border-t-8 border-b-8 border-gray-200" />
-    <div className="absolute top-0 left-0 h-16 w-16 rounded-full border-t-8 border-b-8 border-blue-500 animate-spin"></div>
-  </div>
-</div>
+      <div className="flex justify-center items-center mt-20">
+      <div className="rounded-full h-20 w-20 bg-violet-800 animate-ping"></div>
+    </div>
 
 
 
