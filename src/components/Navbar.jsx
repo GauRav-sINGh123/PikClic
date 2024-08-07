@@ -98,7 +98,7 @@ const Navbar = () => {
           }`}
           id="mobile-menu-2"
         >
-          <div className="flex flex-col ml-4 gap-2 md:gap-0 mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          <div className="flex flex-col justify-center items-center ml-4 gap-2 md:gap-0 mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
             <Link to={"/"}>
               <p className="font-bold text-gray-600 text-md hover:scale-105 transition-all ease-in-out cursor-pointer hover:text-blue-600">
                 Home
