@@ -77,12 +77,6 @@ Make sure you have the following installed:
 
 ---
 
-## 🎨 UI Preview
-
-> Include screenshots or GIFs of the app here.
-
----
-
 ## 🤝 Contributing
 
 1. Fork the repository.  
