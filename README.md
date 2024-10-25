@@ -72,8 +72,7 @@ Make sure you have the following installed:
 
 1. **Sign up** or **Log in** to access your account.  
 2. **Upload images** directly from your device.  
-3. **Organize and search** images using AI-powered tagging.  
-4. **View, delete**, or **download** your uploaded images.
+3. **View, delete**, or **download** your uploaded images.
 
 ---
 
